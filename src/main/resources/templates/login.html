@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Login Page</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+
+    <link rel="stylesheet" href="assets/vendors/iconly/bold.css">
+
+    <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
+      <link rel="stylesheet" href="assets/css/check.css">
+ 
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://kit.fontawesome.com/23c74aa2d2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div id="app">
+        <div id="sidebar" class="active">
+            <div class="sidebar-wrapper active">
+                <div class="sidebar-header  zz">
+                    <div class="d-flex justify-content-between">
+                        <div class="logo">
+                            <a href="index.html"><img class = ""
+                             src="https://everestqm.uz/wp-content/uploads/2021/01/mainlogowh.png"
+                             alt="Logo" srcset="" style = "width:100%;height:100%;background-color:#001c38;"></a>
+                        </div>
+                        <div class="toggler">
+                            <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-menu">
+                    <ul class="menu">
+                       
+
+                        <li class="sidebar-item active ">
+                            <a href="/" class='sidebar-link' id = "birxil">
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Меню</span>
+                            </a>
+                        </li>
+                       
+                       <li class="sidebar-item  active">
+                            <a sec:authorize="isAnonymous()" id = "birxil"  href="/login" class='sidebar-link'>
+                                <i class="bi bi-file-earmark-medical-fill"></i>
+                                <span>Кириш</span>
+                            </a>
+                        </li>
+                        
+                        
+
+                    </ul>
+                
+    </div>       
+    </div>
+    </div>
+    
+    
+    
+    
+    
+    <div id = "main" class= "main-changer">
+    
+      <header class="mb-3 chch">
+       <a href="#" class="burger-btn d-block d-xl-none chch">
+        <i class="bi bi-justify fs-3 chch"></i>
+         </a>
+          </header>
+    
+             
+             
+             
+              <div class="bordered-1">
+    <div class = "bb">
+        <div class="card all-in" id = "uhla">
+        <div class = "sinelichi">
+            <div class="card-header"  id = "uhla-h1">
+                <h1 class = "text-center text-white">Please Login </h1>
+            </div>
+            <div class="card-block" style="padding: 70px;">
+                <form name="f" th:action="@{/signin}" method="post">
+                    <fieldset>
+                     
+                        <div class="form-group">
+                            <label for="textUsername" class = "text-white">Username</label>
+                            <input type="text"  autocomplete="off" required = required  class="form-control inp bg-transparent text-white" id="textUsername" name="textUsername"
+                                   placeholder="Type Your Username">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="textPassword"  class = "text-white">Password</label>
+                            <input type="password" required = required class="form-control bg-transparent pas" id="textPassword" name="textPassword"
+                                   placeholder="Type Your Password">
+                        </div>
+
+
+                        <div class="form-actions" style="margin-top: 12px;">
+                            <button type="submit" class="btn btn-info btn-block">Log in</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+             
+              
+    
+    </div>
+    
+    
+    
+    
+    
+    
+           
+    </div>
+    <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/vendors/apexcharts/apexcharts.js"></script>
+    <script src="assets/js/pages/dashboard.js"></script>
+
+    <script src="assets/js/main.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

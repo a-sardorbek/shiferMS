@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title>Маълумот Қўшиш</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+
+    <link rel="stylesheet" href="assets/vendors/iconly/bold.css">
+
+    <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="assets/css/check.css">
+    <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
+ 
+</head>
+<body>
+ <div id="app">
+        <div id="sidebar" class="active">
+            <div class="sidebar-wrapper active">
+                <div class="sidebar-header">
+                    <div class="d-flex justify-content-between">
+                        <div class="logo">
+                            <a href="index.html"><img class = ""
+                             src="https://everestqm.uz/wp-content/uploads/2021/01/mainlogowh.png"
+                             alt="Logo" srcset="" style = "width:100%;height:100%;background-color:#001c38;"></a>
+                        </div>
+                        <div class="toggler">
+                            <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="sidebar-menu">
+                    <ul class="menu">
+                        
+
+                        <li class="sidebar-item active ">
+                            <a href="/" class='sidebar-link'  id = "birxil" >
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Меню</span>
+                            </a>
+                        </li>
+                       
+                        <li class="sidebar-item active ">
+                            <a sec:authorize="hasRole('ACCOUNT')"  id = "birxil"  href="/showDaily" class='sidebar-link'>
+                                <i class="bi bi-file-earmark-medical-fill"></i>
+                                <span>Маълумот Кўшиш</span>
+                            </a>
+                        </li>
+                        
+                        <li class="sidebar-item active   ">
+                            <a sec:authorize="hasRole('ACCOUNT')"  id = "birxil"  href="/allListI_ch" class='sidebar-link'>
+                                <i class="bi bi-file-earmark-medical-fill"></i>
+                                <span>Ишлаб Чикариш Маълумоти</span>
+                            </a>
+                        </li>
+                        
+                        <li class="sidebar-item   active ">
+                            <a sec:authorize="hasRole('ACCOUNT')"  id = "birxil"  href="/allList_Pul" class='sidebar-link'>
+                                <i class="bi bi-file-earmark-medical-fill"></i>
+                                <span>Харажат ва Кирим</span>
+                            </a>
+                        </li>
+                        
+                        <li class="sidebar-item   active ">
+                            <a sec:authorize="hasRole('ACCOUNT')"  id = "birxil" href="/allListDebitor" class='sidebar-link'>
+                                <i class="bi bi-file-earmark-medical-fill"></i>
+                                <span>Дебитор Маълумоти</span>
+                            </a>
+                        </li>
+                        
+                        <li class="sidebar-item   active ">
+                            <a sec:authorize="hasRole('ACCOUNT')"  id = "birxil"  href="/allList_change" class='sidebar-link'>
+                                <i class="bi bi-file-earmark-medical-fill"></i>
+                                <span>Ўзгартириш</span>
+                            </a>
+                        </li>
+                        
+                        <li class="sidebar-item  active  ">
+                            <a sec:authorize="isAnonymous()"  id = "birxil"  href="/login" class='sidebar-link'>
+                                <i class="bi bi-file-earmark-medical-fill"></i>
+                                <span>Кириш</span>
+                            </a>
+                        </li>
+                        
+                        <li class="sidebar-item  active  ">
+                            <a sec:authorize="isAuthenticated()" id = "chiqishId" href="/logout" class='sidebar-link'>
+                                <i class="bi bi-file-earmark-medical-fill"></i>
+                                <span>Чиқиш</span>
+                            </a>
+                        </li>
+                        
+                        
+
+                    </ul>
+                
+    </div>       
+    </div>
+    </div>
+    <div id="main" class = "border">
+              
+                         <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+            
+            
+            
+            
+    <h1 align="center" class = "border text-white p-2" 
+    style = "background-color:#0f2240;">Маълумот Кўшиш</h1>
+    
+    
+    
+    
+    <div>
+    
+    <form action="#" th:action="@{/saveDaily}" th:object="${info}" method="post" 
+    style = "margin-top:40px;display:flex;
+    flex-wrap:wrap;justify-content:space-between">
+    
+       <div class="form-group" style = "width:45%;">
+        <label for="sana" style = "color:#0f2240; font-weight:900;">Сана</label>
+        <input class="form-control"  type="date" th:field="*{sana}" id="sana" >
+        <div class="alert p-1" style = "color:red" th:if="${#fields.hasErrors('sana')}" th:errors="*{sana}"></div>
+       </div>
+       
+       
+       <div class="form-group" style = "width:45%;">
+        <label for="tanNarx" style = "color:#0f2240; font-weight:900;">Тан нарх (сўм)</label>
+        <input class="form-control" autocomplete="off" type="number" th:field="*{dona_tan_narx}" id="tanNarx" placeholder="Тан нарх">
+        <div class="alert p-1" style = "color:red" th:if="${#fields.hasErrors('dona_tan_narx')}" th:errors="*{dona_tan_narx}"></div>
+       </div>
+      
+       
+       
+       <div class="form-group" style = "width:45%;">
+        <label for="ishlabChiqarildi" style = "color:#0f2240; font-weight:900;">Ишлаб чиқарилди (дона)</label>
+        <input class="form-control" autocomplete="off"  type="number" th:field="*{ishlab_chiqarildi}" id="ishlabChiqarildi" placeholder="Ишлаб чиқарилди">
+        <div class="alert p-1" style = "color:red" th:if="${#fields.hasErrors('ishlab_chiqarildi')}" th:errors="*{ishlab_chiqarildi}"></div>
+       </div>
+       
+
+
+        <div class="form-group" style = "width:45%;">
+        <label for="naqtNarxi" style = "color:#0f2240; font-weight:900;">Сотиш нархи (сўм)</label>
+        <input class="form-control"  autocomplete="off"  type="number" th:field="*{naq_narxi}" id="naqtNarxi" placeholder="Сотиш нархи">
+        <div class="alert p-1" style = "color:red" th:if="${#fields.hasErrors('naq_narxi')}" th:errors="*{naq_narxi}"></div>
+       </div>
+       
+
+       
+       <div class="form-group" style = "width:45%;">
+        <label for="sement" style = "color:#0f2240; font-weight:900;">Цемент (кг)</label>
+        <input class="form-control" autocomplete="off"  type="number" th:field="*{ketgan_sement_kg}" id="sement" placeholder="Цемент">
+        <div class="alert p-1" style = "color:red" th:if="${#fields.hasErrors('ketgan_sement_kg')}" th:errors="*{ketgan_sement_kg}"></div>
+       </div>
+       
+      
+      
+       
+       
+        <div class="form-group" style = "width:45%;">
+        <label for="debitorSonni" style = "color:#0f2240; font-weight:900;">Дебиторга сотилди (дона)</label>
+        <input class="form-control"  autocomplete="off"  type="number" th:field="*{debitorga_soni}" id="debitorSonni" placeholder="Дебитор cони">
+        <div class="alert p-1" style = "color:red" th:if="${#fields.hasErrors('debitorga_soni')}" th:errors="*{debitorga_soni}"></div>
+       </div>
+       
+        <div class="form-group" style = "width:45%;">
+        <label for="asbets" style = "color:#0f2240; font-weight:900;">Асбест (кг)</label>
+        <input class="form-control" autocomplete="off"  type="number" th:field="*{ketgan_asbest_kg}" id="asbets" placeholder="Асбест ">
+        <div class="alert p-1" style = "color:red" th:if="${#fields.hasErrors('ketgan_asbest_kg')}" th:errors="*{ketgan_asbest_kg}"></div>
+       </div>
+       
+       
+       <div class="form-group" style = "width:45%;">
+        <label for="naqtSoni" style = "color:#0f2240; font-weight:900;">Нақтга cотилди (дона)</label>
+        <input class="form-control" autocomplete="off"  type="number" th:field="*{naq_soni}" id="naqtSoni" placeholder="Нақт cони">
+        <div class="alert p-1" style = "color:red" th:if="${#fields.hasErrors('naq_soni')}" th:errors="*{naq_soni}"></div>
+       </div>
+       
+       
+       
+        <div class="form-group" style = "width:45%;">
+        <label for="brak" style = "color:#0f2240; font-weight:900;">Брак (дона)</label>
+        <input class="form-control" autocomplete="off"  type="number" th:field="*{brak_ishlab_chiqarildi}" id="brak" placeholder="Брак">
+        <div class="alert p-1" style = "color:red" th:if="${#fields.hasErrors('brak_ishlab_chiqarildi')}" th:errors="*{brak_ishlab_chiqarildi}"></div>
+       </div>
+      
+      
+      <div class="form-group" style = "width:45%;">
+        <label for="qaytgan" style = "color:#0f2240; font-weight:900;">Дебитордан қайтди (сўм)</label>
+        <input class="form-control" autocomplete="off"  type="number" th:field="*{debitordan_qaytgan_narx}" id="qaytgan" placeholder="Дебитордан қайтган нарх">
+        <div class="alert p-1" style = "color:red" th:if="${#fields.hasErrors('debitordan_qaytgan_narx')}" th:errors="*{debitordan_qaytgan_narx}"></div>
+       </div>
+      
+      
+       
+      
+       
+       
+       <div class="form-group" style = "width:45%;">
+        <label for="boshlangichOmbor" style = "color:#0f2240; font-weight:900;">Бошлангич омбор (дона)</label>
+        <input class="form-control" autocomplete="off"  type="number" th:field="*{boshlangich_ombor}" id="boshlangichOmbor" placeholder="Бошлангич омбор">
+        <div class="alert p-1" style = "color:red" th:if="${#fields.hasErrors('boshlangich_ombor')}" th:errors="*{boshlangich_ombor}"></div>
+       </div>
+          
+          
+          <div class="form-group" style = "width:45%;">
+        <label for="boshlangichDebitor" style = "color:#0f2240; font-weight:900;">Бошлангич дебитор (сўм)</label>
+        <input class="form-control" autocomplete="off"  type="number" th:field="*{boshlangich_debitor}" id="boshlangichDebitor" placeholder="Бошлангич дебитор">
+        <div class="alert p-1" style = "color:red" th:if="${#fields.hasErrors('boshlangich_debitor')}" th:errors="*{boshlangich_debitor}"></div>
+       </div>
+        
+        <div class = "form-group" style = "width:45%;display:flex;">
+          <p style = "width:100%;display:flex;justify-content:space-between;
+          margin-top:20px;height:50%;">
+          <input type="submit" class="btn btn-success" value="Save" 
+          style = "width:40%;height:100%;"/> 
+          <input type="reset" value="Reset"  style = "width:40%;"/>
+          </p>
+        </div>
+        
+    </form>
+    
+    
+    </div>
+   
+    <div align="center">
+    <table class = "text-center text-white" style="background:#0f2240;width: 100%;">
+        
+        <thead>
+           <tr>
+                
+                 <th>Омбор қолдиқ:</th>
+                  <th>Дебитор қолдиқ:</th>
+           </tr>
+        </thead>
+        
+        <tbody>
+            <tr th:each="m : ${listDaily}">               
+                <td th:text="${m.qoldiq_ombor}"></td>
+                <td th:text="${#numbers.formatDecimal(m.debitorda_qoldiq_narx, 0, 2, 'POINT')}"></td>
+            </tr>
+            
+        </tbody>
+    </table>    
+    </div>
+ 
+            
+            
+            
+            
+            
+            </div>       
+    </div>
+    <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/vendors/apexcharts/apexcharts.js"></script>
+    <script src="assets/js/pages/dashboard.js"></script>
+
+    <script src="assets/js/main.js"></script>
+    
+    
+    
+    
+    
+    
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    
+</body>
+</html>

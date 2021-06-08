@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="assets/vendors/iconly/bold.css">
+
+    <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+     <link rel="stylesheet" href="assets/css/check.css">
+    <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
+</head>
+<body>
+
+  <div id="app">
+        <div id="sidebar" class="active">
+            <div class="sidebar-wrapper active">
+                <div class="sidebar-header">
+                    <div class="d-flex justify-content-between">
+                        <div class="logo">
+                            <a href="index.html"><img class = ""
+                             src="https://everestqm.uz/wp-content/uploads/2021/01/mainlogowh.png"
+                             alt="Logo" srcset="" style = "width:100%;height:100%;background-color:#001c38;"></a>
+                        </div>
+                        <div class="toggler">
+                            <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="sidebar-menu">
+                    <ul class="menu">
+                        
+
+                        <li class="sidebar-item active ">
+                            <a href="/" class='sidebar-link linkss' 
+                            id = "birxil"
+                      >
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Меню</span>
+                            </a>
+                        </li>
+                       
+                        <li class="sidebar-item active ">
+                            <a sec:authorize="hasRole('ACCOUNT')"
+                            href="/showDaily" class='sidebar-link' id = "birxil">
+                                <i class="bi bi-file-earmark-medical-fill"></i>
+                                <span>Маълумот Кўшиш</span>
+                            </a>
+                        </li>
+                        
+                        <li class="sidebar-item  active">
+                            <a sec:authorize="hasRole('ACCOUNT')" id = "birxil" href="/allListI_ch" class='sidebar-link'>
+                                <i class="bi bi-file-earmark-medical-fill"></i>
+                                <span>Ишлаб Чикариш Маълумоти</span>
+                            </a>
+                        </li>
+                        
+                        <li class="sidebar-item active ">
+                            <a sec:authorize="hasRole('ACCOUNT')"id = "birxil" href="/allList_Pul" class='sidebar-link'>
+                                <i class="bi bi-file-earmark-medical-fill"></i>
+                                <span>Харажат ва Кирим</span>
+                            </a>
+                        </li>
+                        
+                        <li class="sidebar-item active ">
+                            <a sec:authorize="hasRole('ACCOUNT')" id = "birxil" href="/allListDebitor" class='sidebar-link '>
+                                <i class="bi bi-file-earmark-medical-fill"></i>
+                                <span>Дебитор Маълумоти</span>
+                            </a>
+                        </li>
+                        
+                        
+                        <li class="sidebar-item active ">
+                            <a sec:authorize="hasRole('ACCOUNT')" id = "birxil"   href="/allList_change" class='sidebar-link '>
+                                <i class="bi bi-file-earmark-medical-fill"></i>
+                                <span>Ўзгартириш</span>
+                            </a>
+                        </li>
+                        
+                        <li class="sidebar-item  active">
+                            <a sec:authorize="isAnonymous()"  id = "birxil"  href="/login" class='sidebar-link '>
+                                <i class="bi bi-file-earmark-medical-fill"></i>
+                                <span>Кириш</span>
+                            </a>
+                        </li>
+                        
+                        <li class="sidebar-item active ">
+                            <a sec:authorize="isAuthenticated()"  id = "chiqishId"  href="/logout" class='sidebar-link '>
+                                <i class="bi bi-file-earmark-medical-fill"></i>
+                                <span>Чиқиш</span>
+                            </a>
+                        </li>
+                        
+                        
+
+                    </ul>
+                
+    </div>       
+    </div>
+    </div>
+    
+    <div id = "main" class = "error-page-bg">
+         <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+            
+            <div class = "error-container">
+               <div class = "error-wrapper text-center text-light">
+                 <h1 class = "">404</h1>
+                 <h2 class = "bg-light text-dark p-0"  style = "width:60%;margin:auto">Хатолик Юз Берди</h2>
+                 <p>Сиз излаётган саҳифа мавжуд емас. Еҳтимол сиз манзилни нотўғри ёзгансиз ёки логин парол нотогри терилган болиши мумкин</p>
+                <a href = "/login"> <button class = "btn btn-danger btn-block"  style = "width:60%;margin:auto">Ортга қайтиш</button></a>
+               </div>
+            </div>
+    </div>
+    
+    
+    </div>
+    
+
+ <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/vendors/apexcharts/apexcharts.js"></script>
+    <script src="assets/js/pages/dashboard.js"></script>
+
+    <script src="assets/js/main.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,344 @@
+
+
+#birxil{
+	background-color:#182b6b;
+	transition:0.2s ease
+}
+
+#birxil:hover{
+	background-color:#00183d;
+
+}
+
+#chiqishId{
+	background-color:#182b6b;
+	transition:0.2s ease
+}
+
+#chiqishId:hover{
+	background-color: #ff0000;
+
+}
+
+#tablee{
+	background-color:#00183d
+}
+
+#yangi{
+	background-color:#dfe3e8;
+	color:black;
+	font-weight:700;
+	border-bottom:1px solid #333333;
+}
+
+#bbttnn{
+	background-color:#00183d;
+	border:1px solid transparent;
+}
+
+#bbttnn:hover{
+	background-color:#011b3d;
+}
+
+
+.whole-content{
+	 background:url("https://everestqm.uz/wp-content/uploads/2021/02/mainbgmin.png");
+	 background-position:center;
+	background-size:cover;
+	 object-fit:cover;
+	 height:100vh;
+	 background-repeat:no-repeat;
+	 position:relative;
+}
+
+
+.flex-wrapper{
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+	width:90%;
+}
+
+.IamLeft{
+	width:40%;
+	position:relative;
+}
+.IamRight{
+	width:40%;
+}
+
+.right-wrapper-1{
+
+	width:100%;
+	perspective:300
+}
+
+
+.my-image-1{
+	width:100%;
+	animation-name:roof;
+	animation-delay:1s;
+	animation-duration:5s;
+	animation-timing-function:linear;
+	animation-iteration-count:infinite;
+	animation-fill-mode:forwards;
+	animation-name:roof;
+	animation-direction:alternate;
+}
+
+@keyframes roof{
+	50%{
+	  margin-left:25px;
+	}
+	
+}
+
+
+
+.IamLeft h1{
+	font-size:50px;
+	
+}
+
+.IamLeft h2{
+	font-size:40px;
+	position:relative;
+	padding:15px;
+}
+.IamLeft h2:before{
+	content:'';
+	position:absolute;
+	top:0;
+	left:0;
+	width:5px;
+	height:100%;
+	background-color:chocolate;
+}
+.IamLeft ul li{
+	list-style:none;
+	display:flex;
+	
+	flex-direction:flex-start;
+	align-items:center;
+	font-size:20px;
+}
+
+ul>li>img{
+	margin-right:15px;
+}
+
+.left-wrapper-1{
+	overflow:hidden;
+}
+.firstt{
+	position:relative;
+	overflow:hidden;
+	transform:translateY(110%);
+	animation-name:firstt;
+	animation-delay:0.5s;
+	animation-duration:2s;
+	animation-timing-function:ease;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	animation-direction:alternate;
+}
+
+@keyframes firstt{
+	
+	100%{
+	  transform:translateY(0%);
+	}
+}
+
+
+.left-wrapper-2{
+	overflow:hidden;
+}
+.left-wrapper-2>ul{
+	position:relative;
+	overflow:hidden;
+	transform:translateY(110%);
+	animation-name:secondd;
+	animation-delay:0s;
+	animation-duration:2s;
+	animation-timing-function:ease;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	animation-direction:alternate;
+}
+
+@keyframes secondd{
+	
+	100%{
+	  transform:translateY(0%);
+	}
+}
+
+
+
+
+
+
+
+.main-changer{
+	height:100vh;
+	background:url("https://wallpaperaccess.com/full/937109.jpg");
+	background-repeat:no-repeat;
+	background-size:cover;
+	 background-position:center;
+	 object-fit:cover;
+	 background-repeat:no-repeat;
+	 position:relative;
+}
+
+#uhla{
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	font-family:'sans-serif','sans';
+	
+}
+
+#uhla{
+	z-index:5;
+	color:white;
+	width:60%;
+	background:rgba(0,0,0,0.6);
+	box-shadow:0px 0px 20px 5px lightgrey;
+	overflow:hidden;
+}
+
+
+
+#uhla-h1{
+	background:rgba(0,0,0,0);
+}
+
+
+
+#uhla .form-group input{
+	border:none;
+	border-bottom:1px solid gray;
+	border-radius:0%;
+	padding:15px;
+	outline:none;
+	box-shadow:none;
+
+}
+
+#uhla button{
+	background:chocolate;
+	border:transparent;
+	padding:5px;
+	font-size:20px;
+}
+
+#uhla button:hover{
+	background:blue;
+}
+
+#uhla button::focus{
+	background:blue;
+}
+
+
+#uhla input::placeholder{
+	color:lightgrey;
+	font-weight:500;
+	font-size:15px;
+}
+
+
+
+.inp{
+	background:url('https://www.freeiconspng.com/uploads/account-icon-7.png');
+    background-size:25px;
+    background-position:center left;
+    background-repeat: no-repeat;
+    
+    object-fit:cover;
+    text-indent: 20px;
+    
+   
+}
+
+#uhla input:focus{
+	border-color:white;
+}
+#uhla .pas {
+ 	background:url('https://icon-library.com/images/password-icon-png/password-icon-png-22.jpg');
+    background-size:20px;
+    object-fit:cover;
+    background-position:center left;
+    background-repeat: no-repeat;
+    text-indent: 20px;
+    font-weight:800;
+    font-size:19px;
+}
+
+
+.error-page-bg{
+	background:url('https://www.businesslist.my/img/cats/construction.jpg');
+	height:100vh;
+	background-size:cover;
+    object-fit:cover;
+    background-position:right;
+    background-repeat: no-repeat;
+    position:relative;
+}
+
+
+
+.error-container{
+	position:absolute;
+	top:50%;
+	left:50%;
+	
+	transform:translate(-50%,-50%);
+	font-family:'sans-serif','sans';
+	overflow:hidden;
+}
+
+.error-wrapper{
+	background:rgba(0,0,0,0.8);
+	padding:50px;
+
+	transform:translateY(110%);
+	animation-name:erorr-animation;
+	animation-delay:0s;
+	animation-duration:2s;
+	animation-timing-function:ease;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	animation-direction:alternate;
+	
+}
+
+
+@keyframes erorr-animation{
+	
+	100%{
+	  transform:translateY(0%);
+	}
+}
+
+
+
+
+.error-wrapper h1{
+	font-size:100px;
+	color:#fc0303;
+	font-weight:bold;
+	font-family:sans-serif;
+}
+
+.error-wrapper p{
+	font-size:20px;
+}
+

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Ишлаб Чиқариш Маълумоти</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<link rel="stylesheet" href="assets/css/check.css">
+</head>
+<body>
+ 
+ <div class = "container-1" style="width: 80%;margin:auto;">
+ <br/>
+    <a href="/" class="btn btn-outline-primary">
+       
+        <span>Меню</span>
+    </a>
+ </div>                  
+<div align="center">
+<br/>
+<div class="col-12 col-md-6 order-md-1 order-last">
+                <h3  style = "color:#1e2745">Ишлаб Чиқариш Маълумоти</h3>
+                
+            </div>
+
+<br/> 
+<br/>
+
+ <div>
+    <div class = "container-1" style="width: 35%;margin:auto;">
+    <form th:action="@{/i_ch/excel}">
+    <div class="input-group">
+  <input class="form-control form-control-sm" type="date" name="start" id="start"   th:value="${start}" required />
+  <input  class="form-control form-control-sm" type="date" name="end" id="end"   th:value="${end}" required />
+  <input  type="submit" class="btn btn-info" value="Excel формат олиш" />
+</div>
+    </form>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+   <div class = "container-1" style="width: 25%;margin:auto;">
+ <form th:action="@{/allListI_ch/1}">
+ <div class="input-group">
+    <input type="date" class="form-control form-control-sm" name="keyword" size=20 id="keyword"  th:value="${keyword}" required />
+    &nbsp;
+    <input type="submit" class="btn btn-primary btn-sm"  value="Қидирув" />
+    &nbsp;
+    <input type="button" class="btn btn-primary btn-sm" value="Ҳаммаси" id="btnClear" onclick="clearSearch()" />
+    </div>
+ </form> 
+</div>
+    <br/>
+    </div>
+    <div class = "container-1" style="width: 80%;margin:auto;">
+   <div class="table-responsive">
+      <table class="table  table-hover table-striped  text-center">
+        <thead>
+            <tr>
+                
+                <th>Сана</th>
+                <th>Омборда</th>
+                <th>Ишлаб чиқарилди</th>
+                <th>Сотилди</th>
+                <th>Омборда Қолдиқ</th>
+                <th>Брак</th>
+                <th>Асбест Ўртача</th>
+                <th>Семент Ўртача</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr  th:each="m : ${listDaily}">
+                <td th:text="${m.sana}"></td>
+                <td th:text="${m.boshlangich_ombor}"></td>
+                <td th:text="${m.ishlab_chiqarildi}"></td>
+                <td th:text="${m.sotildi_son}"></td>
+                <td th:text="${m.qoldiq_ombor}"></td>
+                <td th:text="${m.brak_ishlab_chiqarildi}"></td>
+                <td th:text="${#numbers.formatDecimal(m.ortacha_asbest , 1, 1, 'POINT')}"></td>
+                <td th:text="${#numbers.formatDecimal(m.ortacha_sement , 1, 1, 'POINT')}"></td>
+            </tr>
+        </tbody>
+    </table>
+    
+     <div class="fs-1" style = "color:#1e2745">
+         Маълумот Сони: [[${totalItems}]] та 
+     </div>
+         &nbsp;&nbsp;
+         
+         
+         <a th:if="${currentPage > 1}" class="btn btn-primary btn-sm" th:href="@{/allListI_ch/1}">Биринчи</a>
+         <span class="btn btn-primary btn-sm" th:unless="${currentPage > 1}">Биринчи</span>
+         
+         &nbsp;&nbsp;
+         
+         <a th:if="${currentPage > 1}" class="btn btn-primary btn-sm" th:href="@{'/allListI_ch/' + ${currentPage - 1}}">Олдинги</a>
+         <span class="btn btn-primary btn-sm"  th:unless="${currentPage > 1}">Олдинги</span>
+         
+         &nbsp;&nbsp;
+         
+         <span  th:each="i: ${#numbers.sequence(1, totalPages)}">
+               <a th:if="${i != currentPage}"  th:href="@{'/allListI_ch/'+${i}}">[[${i}]]</a>
+               <span th:unless="${i != currentPage}">[[${i}]]</span>
+               &nbsp;&nbsp;
+         </span>
+         
+         <a th:if="${currentPage < totalPages}" class="btn btn-primary btn-sm" th:href="@{'/allListI_ch/' + ${currentPage + 1}}">Кейинги</a>
+         <span class="btn btn-primary btn-sm"  th:unless="${currentPage < totalPages}">Кейинги</span>
+         
+         &nbsp;&nbsp;
+         
+         <a th:if="${currentPage < totalPages}" class="btn btn-primary btn-sm" th:href="@{'/allListI_ch/' + ${totalPages}}">Oxirgi</a>
+         <span class="btn btn-primary btn-sm"  th:unless="${currentPage < totalPages}">Охирги</span>
+     
+    
+    </div> 
+    <br/>
+    <br/>
+    <br/>
+    <div>
+    
+    
+    </div>
+     </div>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<script type="text/javascript">
+    function clearSearch() {
+        window.location = "[[@{/allListI_ch}]]";
+    }
+</script>
+</body>
+</html>
